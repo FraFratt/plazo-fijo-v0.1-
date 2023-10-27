@@ -1,6 +1,6 @@
 
+// formula y calculos
 
-/////////////////////////
 const btnCalcular = document.getElementById('calcular');
 btnCalcular.addEventListener('click', obtenerValor);
 
@@ -8,30 +8,30 @@ const inputMonto = document.getElementById('monto');
 const inputPorcentaje = document.getElementById('porcentaje');
 const inputCantMeses = document.getElementById('cantMeses');
 
-inputMonto.addEventListener('keyup', function(event) {
+inputMonto.addEventListener('keyup', function (event) {
   soloNumeros(this);
   validarNumero(event, this);
 });
 
-inputMonto.addEventListener('blur', function() {
+inputMonto.addEventListener('blur', function () {
   quitarMensajeError(this);
 });
 
-inputPorcentaje.addEventListener('keyup', function(event) {
+inputPorcentaje.addEventListener('keyup', function (event) {
   soloNumeros(this);
   validarNumero(event, this);
 });
 
-inputPorcentaje.addEventListener('blur', function() {
+inputPorcentaje.addEventListener('blur', function () {
   quitarMensajeError(this);
 });
 
-inputCantMeses.addEventListener('keyup', function(event) {
+inputCantMeses.addEventListener('keyup', function (event) {
   soloNumeros(this);
   validarNumero(event, this);
 });
 
-inputCantMeses.addEventListener('blur', function() {
+inputCantMeses.addEventListener('blur', function () {
   quitarMensajeError(this);
 });
 
@@ -53,16 +53,16 @@ function obtenerValor() {
 
   if (valorActual === Infinity) {
     alert("El valor es infinito.");
-    
+
   }
 
-  document.getElementById("totalAnual").textContent = '$' + valorActual.toFixed(2) ;
-  document.getElementById("descripcionTotal").textContent =  " *Valor después de " + cantidadMeses + " meses";
+  document.getElementById("totalAnual").textContent = '$' + valorActual.toFixed(2);
+  document.getElementById("descripcionTotal").textContent = " *Valor después de " + cantidadMeses + " meses";
 
 
 
 
-  
+
 
 
 }
@@ -104,7 +104,6 @@ function soloNumeros(input) {
 
 
 
-
 // Fullscry
 
 
@@ -120,7 +119,7 @@ const inputsMod = [
 const cambiarInputs = (fullscreen) => {
   inputsMod.forEach(inputs => {
     inputs.style.height = fullscreen ? '45px' : ''; // Cambia estilo solo si fullscreen es true
-    
+
   });
 };
 
@@ -137,27 +136,26 @@ document.addEventListener('fullscreenchange', () => {
     seccionA.style.display = 'flex';
     seccionA.style.justifyContent = 'center';
     seccionA.style.alignItems = '';
-    seccionB.style.backgroundColor = 'green';
+    seccionB.style.backgroundColor = 'rgb(24 19 39)';
     document.getElementById('cerrar-fullscreen').style.display = 'block';
     document.getElementById('container-fullscry').style.display = 'inline-flex';
 
-    cambiarInputs(true); // Cambia estilos al entrar en fullscreen
-  } else {
+    cambiarInputs(true);
     seccionA.style.display = '';
     seccionA.style.justifyContent = '';
     seccionA.style.alignItems = '';
     seccionB.style.backgroundColor = '';
     document.getElementById('cerrar-fullscreen').style.display = 'none';
     document.getElementById('container-fullscry').style.display = 'none';
-    cambiarInputs(false); // Restaura  estilos al salir del fullscreen
+    cambiarInputs(false);
   }
 });
 
-// Agrega el botón
+// off fullscreen
 const cerrarPantallaCompletaBtn = document.getElementById('cerrar-fullscreen');
 cerrarPantallaCompletaBtn.addEventListener('click', () => {
   document.exitFullscreen();
-  
+
 
 });
 
